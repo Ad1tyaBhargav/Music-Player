@@ -1,33 +1,39 @@
 {
     "songs": [
         {
-            "filename": "Barse Naina",
             "title": "Barse Naina",
             "artist": "Artist Name"
         },
         {
-            "filename": "kaisa Mai",
-            "title": "kaisa Mai",
+            "title": "Kaisa Mai",
             "artist": "Artist Name"
         },
         {
-            "filename": "Khuda Bhi",
             "title": "Khuda Bhi",
             "artist": "Artist Name"
         },
         {
-            "filename": "Mi Amor",
             "title": "Mi Amor",
             "artist": "Artist Name"
         },
         {
-            "filename": "Mujhko Mila",
             "title": "Mujhko Mila",
             "artist": "Artist Name"
         },
         {
-            "filename": "Phir Mohabbat",
             "title": "Phir Mohabbat",
+            "artist": "Artist Name"
+        },
+        {
+            "title": "Zara Zara",
+            "artist": "Artist Name"
+        },
+        {
+            "title": "Labon Ko",
+            "artist": "Artist Name"
+        },
+        {
+            "title": "Jee Le Zaraa",
             "artist": "Artist Name"
         }
     ]

@@ -329,6 +329,11 @@ body {
         gap: 10px;
         align-items: center;
     }
+
+    .nav svg{
+        display: none;
+    }
+
 }
 
 @media (max-width:500px) {

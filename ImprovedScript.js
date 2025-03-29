@@ -93,7 +93,7 @@ async function setSongs(folder) {
                             </div>
                         </li>`;
         songUL.innerHTML += songCard;
-        songs.push(song.filename);
+        songs.push(song.title);
     });
 
     // Add event listeners to play songs

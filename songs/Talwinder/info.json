@@ -1,4 +1,44 @@
 {
-    "title":"Talwinder",
-    "description":"That face painted guy with really good music"
+    "songs": [
+        {
+            "title": "Dhundhala",
+            "artist": "Artist Name"
+        },
+        {
+            "title": "DIL MERA",
+            "artist": "Artist Name"
+        },
+        {
+            "title": "Funk Song",
+            "artist": "Artist Name"
+        },
+        {
+            "title": "GALLAN 4",
+            "artist": "Artist Name"
+        },
+        {
+            "title": "KAMMO JI",
+            "artist": "Artist Name"
+        },
+        {
+            "title": "KHAYAAL",
+            "artist": "Artist Name"
+        },
+        {
+            "title": "NASHA",
+            "artist": "Artist Name"
+        },
+        {
+            "title": "TERA SAATH",
+            "artist": "Artist Name"
+        },
+        {
+            "title": "Wishes",
+            "artist": "Artist Name"
+        },
+        {
+            "title": "Your Eyes",
+            "artist": "Artist Name"
+        }
+    ]
 }
