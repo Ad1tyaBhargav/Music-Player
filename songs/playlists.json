@@ -1,0 +1,28 @@
+{
+"playlists": [
+    {
+      "folder": "Love",
+      "title": "Love",
+      "description": "Songs that reminds me that I still exists",
+      "cover": "songs/Love/cover.jpeg"
+    },
+    {
+      "folder": "Meme",
+      "title": "Meme",
+      "description": "Meme songs",
+      "cover": "songs/Meme/cover.jpeg"
+    },
+    {
+        "folder": "Seedhe Maut",
+        "title": "Seedhe Maut",
+        "description": "All Abj and Calm collection",
+        "cover": "songs/Seedhe Maut/cover.jpeg"
+    },
+    {
+        "folder": "Talwinder",
+        "title": "Talwinder",
+        "description": "That face painted guy with really good music",
+        "cover": "songs/Talwinder/cover.jpeg"
+    }
+  ]
+}

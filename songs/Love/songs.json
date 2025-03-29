@@ -1,0 +1,34 @@
+{
+    "songs": [
+        {
+            "filename": "Barse Naina.mp3",
+            "title": "Barse Naina",
+            "artist": "Artist Name"
+        },
+        {
+            "filename": "kaisa Mai.mp3",
+            "title": "kaisa Mai",
+            "artist": "Artist Name"
+        },
+        {
+            "filename": "Khuda Bhi.mp3",
+            "title": "Khuda Bhi",
+            "artist": "Artist Name"
+        },
+        {
+            "filename": "Mi Amor.mp3",
+            "title": "Mi Amor",
+            "artist": "Artist Name"
+        },
+        {
+            "filename": "Mujhko Mila.mp3",
+            "title": "Mujhko Mila",
+            "artist": "Artist Name"
+        },
+        {
+            "filename": "Phir Mohabbat.mp3",
+            "title": "Phir Mohabbat",
+            "artist": "Artist Name"
+        }
+    ]
+}

@@ -37,82 +37,76 @@ function reset() {
 }
 
 async function setPlayList() {
-    let a = await fetch("https://raw.githubusercontent.com/Ad1tyaBhargav/Music-Player/main/songs/")
-    let response = await a.text();
-    let div = document.createElement("div")
-    div.innerHTML = response
-    let as = div.getElementsByTagName("a")
-    let playlist = []
-    let result
-    for (let i = 1, j = 0; i < as.length; i++, j++) {
-        playlist[j] = as[i].innerText.replace("/", "")
-        //set Playlist in cardContainer
-        let a = await fetch(`https://raw.githubusercontent.com/Ad1tyaBhargav/Music-Player/main/songs/${playlist[j]}/info.json`)
-        result = await a.json();
-        let card = ` <div data-folder="${playlist[j]}" class="card rounded">
-                        <div class="img">
-                            <img src="songs/${playlist[j]}/cover.jpeg" alt="">
-                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                                <!-- Green Circle -->
-                                <circle cx="50" cy="50" r="40" fill="green" />
+    let a = await fetch("https://raw.githubusercontent.com/Ad1tyaBhargav/Music-Player/main/songs/playlists.json");
+    let data = await a.json();
+    let playlists = data.playlists;
 
-                                <!-- Play Sign (Black Triangle) -->
-                                <polygon points="40,30 40,70 70,50" fill="black" />
-                            </svg>
+    cardContainer.innerHTML = ""; 
 
-                        </div>
-                        <h2>${result.title}</h2>
-                        <p>${result.description}</p>
-                    </div>`
-        cardContainer.innerHTML = cardContainer.innerHTML + card
-    }
-    Array.from(cards).forEach(e => {
+    playlists.forEach(playlist => {
+        let card = `
+            <div data-folder="${playlist.folder}" class="card rounded">
+                <div class="img">
+                    <img src="${playlist.cover}" alt="">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="40" fill="green" />
+                        <polygon points="40,30 40,70 70,50" fill="black" />
+                    </svg>
+                </div>
+                <h2>${playlist.title}</h2>
+                <p>${playlist.description}</p>
+            </div>`;
+        cardContainer.innerHTML += card;
+    });
+
+    // Add click events to cards
+    document.querySelectorAll(".card").forEach(e => {
         e.addEventListener("click", async () => {
-            reset()
-            console.log(e.dataset.folder + " is lit")
-            songs = await setSongs(e.dataset.folder)
-            playMusic(songs[0])
-        })
-    })
-
+            reset();
+            console.log(e.dataset.folder + " is lit");
+            songs = await setSongs(e.dataset.folder);
+            playMusic(songs[0]);
+        });
+    });
 }
 
+
 async function setSongs(folder) {
-    currFolder = folder
-    let a = await fetch(`https://raw.githubusercontent.com/Ad1tyaBhargav/Music-Player/main/songs/${folder}`)
-    let response = await a.text();
-    let div = document.createElement("div")
-    div.innerHTML = response
-    let as = div.getElementsByTagName("a")
-    songs = []
-    songUL.innerHTML = ""
-    for (let index = 0; index < as.length; index++) {
-        const element = as[index];
-        if (!element.href.includes(".mp3")) continue;
-        let name = element.innerText.split(".mp3")[0];
+    currFolder = folder;
+    let a = await fetch(`https://raw.githubusercontent.com/Ad1tyaBhargav/Music-Player/main/songs/${folder}/songs.json`);
+    let data = await a.json();
+
+    songs = [];
+    songUL.innerHTML = "";
+
+    data.songs.forEach(song => {
+        let name = song.title;
+        let artist = song.artist;
         let songCard = `<li>
                             <img class="invert" src="img/music.svg" alt="">
                             <div class="songDetail">
                                 <div>${name}</div>
-                                <div>artist name</div>
+                                <div>${artist}</div>
                             </div>
                             <div class="playNow">
                                 <img class="invert" src="img/play.svg" alt="">
                             </div>
-                        </li>`
-        songUL.innerHTML = songUL.innerHTML + songCard
-        songs.push(name)
-    }
+                        </li>`;
+        songUL.innerHTML += songCard;
+        songs.push(song.filename);
+    });
 
-    Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e => {
-        let track = e.querySelector(".songDetail").firstElementChild.innerHTML
+    // Add event listeners to play songs
+    Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach((e, index) => {
         e.addEventListener("click", () => {
-            playMusic(track, false)
-            play.src = "img/pause.svg"
-        })
-    })
-    return songs
+            playMusic(songs[index], false);
+            play.src = "img/pause.svg";
+        });
+    });
+
+    return songs;
 }
+
 
 const playMusic = (track, pause = true) => {
     // let  audio=new Audio("songs/"+track+".mp3")
