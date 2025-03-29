@@ -37,7 +37,7 @@ function reset() {
 }
 
 async function setPlayList() {
-    let a = await fetch("https://github.com/Ad1tyaBhargav/Music-Player/tree/main/songs/")
+    let a = await fetch("https://raw.githubusercontent.com/Ad1tyaBhargav/Music-Player/main/songs/")
     let response = await a.text();
     let div = document.createElement("div")
     div.innerHTML = response
@@ -47,7 +47,7 @@ async function setPlayList() {
     for (let i = 1, j = 0; i < as.length; i++, j++) {
         playlist[j] = as[i].innerText.replace("/", "")
         //set Playlist in cardContainer
-        let a = await fetch(`https://github.com/Ad1tyaBhargav/Music-Player/tree/main/songs/${playlist[j]}/info.json`)
+        let a = await fetch(`https://raw.githubusercontent.com/Ad1tyaBhargav/Music-Player/main/songs/${playlist[j]}/info.json`)
         result = await a.json();
         let card = ` <div data-folder="${playlist[j]}" class="card rounded">
                         <div class="img">
@@ -79,7 +79,7 @@ async function setPlayList() {
 
 async function setSongs(folder) {
     currFolder = folder
-    let a = await fetch(`https://github.com/Ad1tyaBhargav/Music-Player/tree/main/songs/${folder}`)
+    let a = await fetch(`https://raw.githubusercontent.com/Ad1tyaBhargav/Music-Player/main/songs/${folder}`)
     let response = await a.text();
     let div = document.createElement("div")
     div.innerHTML = response
